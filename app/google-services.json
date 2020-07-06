@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "593194110837",
+    "firebase_url": "https://favorite-dogs.firebaseio.com",
+    "project_id": "favorite-dogs",
+    "storage_bucket": "favorite-dogs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593194110837:android:03c332749ec17b815f8d3c",
+        "android_client_info": {
+          "package_name": "com.rohankadkol.favoritedogsappfinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593194110837-2pn794ofvi2amhipi4rlnt1d8i4985iu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASN4crH--PePpCEcFrtTK1P7edA7uz0gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "593194110837-2pn794ofvi2amhipi4rlnt1d8i4985iu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
