@@ -1,23 +1,27 @@
 package com.rohankadkol.favoritedogsappfinal.pojos;
 
 public class Dog {
+    public enum Gender {MALE, FEMALE};
+
     private String name;
     private String breed;
     private double age;
+    private Gender gender;
     private String imageUrl;
-    private String description;
+    private String notes;
     private String likes;
     private String dislikes;
 
     public Dog() {
     }
 
-    public Dog(String name, String breed, double age, String imageUrl, String description, String likes, String dislikes) {
+    public Dog(String name, String breed, double age, Gender gender, String imageUrl, String notes, String likes, String dislikes) {
         this.name = name;
         this.breed = breed;
         this.age = age;
+        this.gender = gender;
         this.imageUrl = imageUrl;
-        this.description = description;
+        this.notes = notes;
         this.likes = likes;
         this.dislikes = dislikes;
     }
@@ -54,12 +58,12 @@ public class Dog {
         this.imageUrl = imageUrl;
     }
 
-    public String getDescription() {
-        return description;
+    public String getNotes() {
+        return notes;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     public String getLikes() {
@@ -76,5 +80,13 @@ public class Dog {
 
     public void setDislikes(String dislikes) {
         this.dislikes = dislikes;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }

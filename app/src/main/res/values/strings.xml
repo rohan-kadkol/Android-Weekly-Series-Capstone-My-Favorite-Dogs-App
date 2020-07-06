@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">FavoriteDogsAppFinal</string>
+    <string name="app_name">My Favorite Dogs</string>
+    <string name="name">Name</string>
+    <string name="breed">Breed</string>
+    <string name="age">Age</string>
+    <string name="image_url">Image URL</string>
+    <string name="likes">Likes</string>
+    <string name="dislikes">Dislikes</string>
+    <string name="notes">Notes</string>
+    <string name="add_edit_key">add_edit</string>
+    <string name="add_key">add</string>
+    <string name="add_page_title">Add a dog</string>
+    <string name="edit_page_title">Edit dog</string>
+    <string name="save">Save</string>
 </resources>
