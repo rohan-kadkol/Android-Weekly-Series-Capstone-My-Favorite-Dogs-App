@@ -12,9 +12,17 @@ Keep track of your favorite dogs with this "My Favorite Dogs" app that's backed 
 
 Captain Whiskers: Woof Woof... I like this app. All you humans should download and use it.
 
-### Screenshots
+### Screenshots (App)
 <br>
 <img src="images/screenshot.gif">
+
+<br>
+<br>
+
+### Screenshots (App with Firebase demo)
+
+<br>
+<img src="images/firebase_screenshot.gif">
 
 <br>
 <br>
