@@ -17,6 +17,7 @@ import com.rohankadkol.favoritedogsappfinal.utils.StringUtils;
 
 public class AddEditActivity extends AppCompatActivity {
     boolean mIsAdd;
+    Dog mDog;
 
     TextInputLayout tilName;
     TextInputLayout tilBreed;
@@ -44,8 +45,8 @@ public class AddEditActivity extends AppCompatActivity {
         setupActionBar();
 
         if (!mIsAdd) {
-            Dog dog = getIntent().getParcelableExtra(getString(R.string.dog_key));
-            populateFields(dog);
+            mDog = getIntent().getParcelableExtra(getString(R.string.dog_key));
+            populateFields(mDog);
         }
     }
 
@@ -84,14 +85,14 @@ public class AddEditActivity extends AppCompatActivity {
             this.finish();
         } else if (item.getItemId() == R.id.action_save) {
             if (validateDog()) {
-                addDog();
+                addEditDog(mIsAdd);
                 this.finish();
             }
         }
         return true;
     }
 
-    private void addDog() {
+    private void addEditDog(boolean isAdd) {
         String name = tilName.getEditText().getText().toString().trim();
         String breed = tilBreed.getEditText().getText().toString().trim();
         String imageUrl = tilImageUrl.getEditText().getText().toString().trim();
@@ -102,7 +103,11 @@ public class AddEditActivity extends AppCompatActivity {
         String ageString = tilAge.getEditText().getText().toString().trim();
         double age = TextUtils.isEmpty(ageString) ? Dog.EMPTY_AGE : Double.parseDouble(ageString);
 
-        FirebaseUtils.addDog(name, breed, age, imageUrl, notes, likes, dislikes);
+        if (isAdd) {
+            FirebaseUtils.addDog(name, breed, age, imageUrl, notes, likes, dislikes);
+        } else {
+            FirebaseUtils.editDog(mDog, name, breed, age, imageUrl, notes, likes, dislikes);
+        }
     }
 
     private boolean validateDog() {

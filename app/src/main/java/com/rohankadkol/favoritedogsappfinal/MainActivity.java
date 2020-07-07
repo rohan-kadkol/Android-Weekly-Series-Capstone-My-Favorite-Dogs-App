@@ -36,21 +36,9 @@ public class MainActivity extends AppCompatActivity implements DogsAdapter.DogCl
         setContentView(R.layout.activity_main);
 
 //        Dog dog = new Dog("Bobby", "German Shepherd", 2.5, "https://upload.wikimedia.org/wikipedia/commons/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg", "Good Dog", "Belly rubs", "Touching his face");
-//        dogs.add(dog);
-//        dogs.add(dog);
-//        dogs.add(dog);
-//        dogs.add(dog);
-//        dogs.add(dog);
-//        dogs.add(dog);
-//        dogs.add(dog);
-//        dogs.add(dog);
-//        dogs.add(dog);
-//        dogs.add(dog);
-//        dogs.add(dog);
-//        dogs.add(dog);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("dogs1");
+        DatabaseReference ref = database.getReference("dogs");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -72,8 +60,6 @@ public class MainActivity extends AppCompatActivity implements DogsAdapter.DogCl
 
         setupRecyclerView();
         setupFab();
-
-//        FirebaseUtils.addDog(dog);
     }
 
     private void setupRecyclerView() {

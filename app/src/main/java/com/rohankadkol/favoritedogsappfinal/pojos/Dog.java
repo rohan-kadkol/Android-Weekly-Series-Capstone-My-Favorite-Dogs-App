@@ -29,6 +29,29 @@ public class Dog implements Parcelable {
         this.dislikes = dislikes;
     }
 
+    protected Dog(Parcel in) {
+        id = in.readString();
+        name = in.readString();
+        breed = in.readString();
+        age = in.readDouble();
+        imageUrl = in.readString();
+        notes = in.readString();
+        likes = in.readString();
+        dislikes = in.readString();
+    }
+
+    public static final Creator<Dog> CREATOR = new Creator<Dog>() {
+        @Override
+        public Dog createFromParcel(Parcel in) {
+            return new Dog(in);
+        }
+
+        @Override
+        public Dog[] newArray(int size) {
+            return new Dog[size];
+        }
+    };
+
     public String getId() {
         return id;
     }
@@ -93,27 +116,6 @@ public class Dog implements Parcelable {
         this.dislikes = dislikes;
     }
 
-    protected Dog(Parcel in) {
-        name = in.readString();
-        breed = in.readString();
-        age = in.readDouble();
-        imageUrl = in.readString();
-        notes = in.readString();
-        likes = in.readString();
-        dislikes = in.readString();
-    }
-
-    public static final Creator<Dog> CREATOR = new Creator<Dog>() {
-        @Override
-        public Dog createFromParcel(Parcel in) {
-            return new Dog(in);
-        }
-
-        @Override
-        public Dog[] newArray(int size) {
-            return new Dog[size];
-        }
-    };
 
     @Override
     public int describeContents() {
@@ -122,6 +124,7 @@ public class Dog implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
         dest.writeString(name);
         dest.writeString(breed);
         dest.writeDouble(age);
