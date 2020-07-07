@@ -66,12 +66,18 @@ public class DogActivity extends AppCompatActivity {
         TextView tvName = findViewById(R.id.tv_name);
         TextView tvBreed = findViewById(R.id.tv_breed);
         TextView tvAge = findViewById(R.id.tv_age);
+        TextView tvLikes = findViewById(R.id.tv_likes);
+        TextView tvDislikes = findViewById(R.id.tv_dislikes);
+        TextView tvNotes = findViewById(R.id.tv_notes);
 
         String imageUrl = dog.getImageUrl().equals("") ? "a" : dog.getImageUrl();
         Picasso.get().load(imageUrl).error(R.drawable.ic_broken_image).into(ivDog);
         tvName.setText(dog.getName());
         tvBreed.setText(StringUtils.getBreedString(this.getResources(), dog.getBreed()));
         tvAge.setText(StringUtils.getAgeDisplayString(this.getResources(), dog.getAge()));
+        tvLikes.setText(dog.getLikes());
+        tvDislikes.setText(dog.getDislikes());
+        tvNotes.setText(dog.getNotes());
 
         setTitle(mDog.getName());
     }

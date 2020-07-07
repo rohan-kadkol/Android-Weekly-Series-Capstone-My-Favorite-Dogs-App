@@ -24,4 +24,7 @@
     <string name="delete_alert_message">Do you really want to delete this dog?</string>
     <string name="delete_alert_positive_text">Yes</string>
     <string name="delete_alert_negative_text">No</string>
+    <string name="likes_label">Likes:</string>
+    <string name="dislikes_label">Dislikes:</string>
+    <string name="notes_label">Notes:</string>
 </resources>
