@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DogActivity">
+
+    <ImageView
+        android:id="@+id/iv_dog"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/primary_light"
+        tools:src="@drawable/german_shepherd" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/TextAppearance.MaterialComponents.Headline4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/primary_text"
+        tools:text="Bobby"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/margin_small"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/tv_breed"
+        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/primary_text"
+        tools:text="German Shepherd" />
+
+    <TextView
+        android:id="@+id/tv_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="(4 years old)"
+        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textColor="@color/secondary_text"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_small"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:src="@color/divider"
+        android:layout_marginStart="@dimen/margin_xlarge"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"/>
+
+</LinearLayout>

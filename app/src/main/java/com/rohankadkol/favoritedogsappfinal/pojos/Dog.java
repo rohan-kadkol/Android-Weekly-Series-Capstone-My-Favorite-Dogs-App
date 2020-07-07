@@ -1,12 +1,15 @@
 package com.rohankadkol.favoritedogsappfinal.pojos;
 
-public class Dog {
-    public enum Gender {MALE, FEMALE};
+import android.os.Parcel;
+import android.os.Parcelable;
 
+public class Dog implements Parcelable {
+    public static final double EMPTY_AGE = -1;
+
+    private String id;
     private String name;
     private String breed;
     private double age;
-    private Gender gender;
     private String imageUrl;
     private String notes;
     private String likes;
@@ -15,15 +18,23 @@ public class Dog {
     public Dog() {
     }
 
-    public Dog(String name, String breed, double age, Gender gender, String imageUrl, String notes, String likes, String dislikes) {
+    public Dog(String id, String name, String breed, double age, String imageUrl, String notes, String likes, String dislikes) {
+        this.id = id;
         this.name = name;
         this.breed = breed;
         this.age = age;
-        this.gender = gender;
         this.imageUrl = imageUrl;
         this.notes = notes;
         this.likes = likes;
         this.dislikes = dislikes;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -82,11 +93,41 @@ public class Dog {
         this.dislikes = dislikes;
     }
 
-    public Gender getGender() {
-        return gender;
+    protected Dog(Parcel in) {
+        name = in.readString();
+        breed = in.readString();
+        age = in.readDouble();
+        imageUrl = in.readString();
+        notes = in.readString();
+        likes = in.readString();
+        dislikes = in.readString();
     }
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
+    public static final Creator<Dog> CREATOR = new Creator<Dog>() {
+        @Override
+        public Dog createFromParcel(Parcel in) {
+            return new Dog(in);
+        }
+
+        @Override
+        public Dog[] newArray(int size) {
+            return new Dog[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(breed);
+        dest.writeDouble(age);
+        dest.writeString(imageUrl);
+        dest.writeString(notes);
+        dest.writeString(likes);
+        dest.writeString(dislikes);
     }
 }

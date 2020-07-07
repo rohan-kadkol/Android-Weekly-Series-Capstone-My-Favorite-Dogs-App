@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rohankadkol.favoritedogsappfinal.R;
 import com.rohankadkol.favoritedogsappfinal.pojos.Dog;
+import com.rohankadkol.favoritedogsappfinal.utils.StringUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -20,9 +21,21 @@ public class DogsAdapter extends RecyclerView.Adapter<DogsAdapter.DogViewHolder>
     private Context mContext;
     private List<Dog> mDogs;
 
-    public DogsAdapter(Context context, List<Dog> dogs) {
+    private DogClickInterface mClickInterface;
+
+    public interface DogClickInterface {
+        void onClick(Dog dog);
+    }
+
+    public DogsAdapter(Context context, List<Dog> dogs, DogClickInterface clickInterface) {
         mContext = context;
         mDogs = dogs;
+        mClickInterface = clickInterface;
+    }
+
+    public void updateDogs(List<Dog> dogs) {
+        mDogs = dogs;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -53,12 +66,20 @@ public class DogsAdapter extends RecyclerView.Adapter<DogsAdapter.DogViewHolder>
             ivDog = itemView.findViewById(R.id.iv_dog);
             tvBreed = itemView.findViewById(R.id.tv_breed);
             tvName = itemView.findViewById(R.id.tv_name);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mClickInterface.onClick(mDogs.get(getAdapterPosition()));
+                }
+            });
         }
 
         void bind(int position) {
             Dog dog = mDogs.get(position);
-            Picasso.get().load(dog.getImageUrl()).into(ivDog);
-            tvBreed.setText(dog.getBreed());
+            String imageUrl = dog.getImageUrl().equals("") ? "a" : dog.getImageUrl();
+            Picasso.get().load(imageUrl).error(R.drawable.ic_broken_image).into(ivDog);
+            tvBreed.setText(StringUtils.getBreedString(mContext.getResources(), dog.getBreed()));
             tvName.setText(dog.getName());
         }
     }

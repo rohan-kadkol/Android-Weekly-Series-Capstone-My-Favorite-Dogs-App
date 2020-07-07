@@ -12,4 +12,11 @@
     <string name="add_page_title">Add a dog</string>
     <string name="edit_page_title">Edit dog</string>
     <string name="save">Save</string>
+    <string name="dog_key">dog</string>
+    <string name="years_old">years old</string>
+    <string name="required_field_label">Required field</string>
+    <string name="unknown_breed">Unknown Breed</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="edit_key">edit</string>
 </resources>
