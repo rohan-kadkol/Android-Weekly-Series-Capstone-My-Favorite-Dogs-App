@@ -88,7 +88,8 @@ public class MainActivity extends AppCompatActivity implements DogsAdapter.DogCl
     @Override
     public void onClick(Dog dog) {
         Intent intent = new Intent(this, DogActivity.class);
-        intent.putExtra(getString(R.string.dog_key), dog);
+//        intent.putExtra(getString(R.string.dog_key), dog);
+        intent.putExtra(getString(R.string.dog_id_key), dog.getId());
         startActivity(intent);
     }
 }

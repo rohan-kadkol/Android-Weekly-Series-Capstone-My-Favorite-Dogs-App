@@ -36,7 +36,13 @@ public final class FirebaseUtils {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("dogs");
-        
+
         ref.child(dog.getId()).setValue(dog);
+    }
+
+    public static void deleteDog(Dog dog) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("dogs").child(dog.getId());
+        ref.removeValue();
     }
 }
