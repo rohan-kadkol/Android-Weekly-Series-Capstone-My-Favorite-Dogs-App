@@ -1,6 +1,6 @@
 # Android Weekly Series
 
-Welcome to the Android Weekly Series hosted by the Developer Student Club program!
+Welcome to the Android Weekly Series hosted by Google's Developer Student Club program!
 
 This is a ten week workshop series every Saturday, 1:30 - 3:30 EST from July 11, 2020 to Sept 12, 2020.
 
