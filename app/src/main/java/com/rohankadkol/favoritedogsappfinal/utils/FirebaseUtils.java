@@ -27,7 +27,6 @@ public final class FirebaseUtils {
         dog.setLikes(likes);
         dog.setDislikes(dislikes);
 
-
     }
 
     public static void deleteDog(Dog dog) {
