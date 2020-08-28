@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,21 +36,29 @@ public class DogActivity extends AppCompatActivity {
 //        mDog = getIntent().getParcelableExtra(getString(R.string.dog_key));
         String dogId = getIntent().getStringExtra(getString(R.string.dog_id_key));
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("dogs").child(dogId);
+        // TODO (11): Create a FirebaseDatabase instance and call it database
+        // FirebaseDatabase database = FirebaseDatabase.getInstance();
+        // TODO (12): Using this instance, create a DatabaseReference to the path "dogs/<dogId>". Name it "ref".
+        // DatabaseReference ref = database.getReference("dogs").child(dogId);
 
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                mDog = snapshot.getValue(Dog.class);
-                populateViews(mDog);
-            }
+        // TODO (13): Add a ValueEventListener to ref.
+        // ref.addValueEventListener(new ValueEventListener() {});
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+        // Within onDataChange()
+        // TODO (14): Convert the DataSnapshot into a Dog object using snapshot.getValue(Dog.class). Save this to mDog.
+        // TODO (15): Call the populateViews() method and pass mDog as a parameter.
+        // @Override
+        // public void onDataChange(@NonNull DataSnapshot snapshot) {
+        //     mDog = snapshot.getValue(Dog.class);
+        //     populateViews(mDog);
+        // }
 
-            }
-        });
+        // Within onCancelled()
+        // TODO (16): Show a Toast with an appropriate error message
+        // @Override
+        // public void onCancelled(@NonNull DatabaseError error) {
+        //     Toast.makeText(DogActivity.this, getResources().getQuantityString(R.plurals.download_error_dogs, 1, 1), Toast.LENGTH_SHORT).show();
+        // }
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

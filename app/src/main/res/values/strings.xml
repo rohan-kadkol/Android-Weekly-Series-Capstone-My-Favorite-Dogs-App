@@ -27,4 +27,9 @@
     <string name="likes_label">Likes:</string>
     <string name="dislikes_label">Dislikes:</string>
     <string name="notes_label">Notes:</string>
+
+    <plurals name="download_error_dogs">
+        <item quantity="one">Error downloading dog</item>
+        <item quantity="other">Error downloading dogs</item>
+    </plurals>
 </resources>
