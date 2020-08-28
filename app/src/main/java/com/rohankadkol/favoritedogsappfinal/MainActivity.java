@@ -40,35 +40,36 @@ public class MainActivity extends AppCompatActivity implements DogsAdapter.DogCl
 
         // TODO (1): Create a FirebaseDatabase instance and call it database
         // TODO (2): Using this instance, create a DatabaseReference to the path "dogs". Name it "ref".
-        // FirebaseDatabase database = FirebaseDatabase.getInstance();
-        // DatabaseReference ref = database.getReference("dogs");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("dogs");
 
         // TODO (3): Add a ValueEventListener to ref.
-        // ref.addValueEventListener(new ValueEventListener() {});
+        ref.addValueEventListener(new ValueEventListener() {
 
-        // Within onDataChange()
-        // TODO (4): Create a list of the Dog type. Call it dogs.
-        // TODO (5): Iterate through snapshot.getChildren() using a for loop.
-        // TODO (6): In each iteration, convert the child DataSnapshot into a Dog object.
-        // TODO (7): Add this dog object to the list "dogs" created above.
-        // TODO (8): Call the updateDogs() method on the mDogsAdapter and pass the list of dogs as a parameter
-        // @Override
-        // public void onDataChange(@NonNull DataSnapshot snapshot) {
-        //     List<Dog> dogs = new ArrayList<>();
-        //     Dog dog;
-        //     for(DataSnapshot s : snapshot.getChildren()) {
-        //         dog = s.getValue(Dog.class);
-        //         dogs.add(dog);
-        //     }
-        //     mDogsAdapter.updateDogs(dogs);
-        // }
+            // Within onDataChange()
+            // TODO (4): Create a list of the Dog type. Call it dogs.
+            // TODO (5): Iterate through snapshot.getChildren() using a for loop.
+            // TODO (6): In each iteration, convert the child DataSnapshot into a Dog object.
+            // TODO (7): Add this dog object to the list "dogs" created above.
+            // TODO (8): Call the updateDogs() method on the mDogsAdapter and pass the list of dogs as a parameter
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<Dog> dogs = new ArrayList<>();
+                Dog dog;
+                for (DataSnapshot s : snapshot.getChildren()) {
+                    dog = s.getValue(Dog.class);
+                    dogs.add(dog);
+                }
+                mDogsAdapter.updateDogs(dogs);
+            }
 
-        // Within onCancelled()
-        // TODO (9): Show a Toast with an appropriate error message
-        // @Override
-        // public void onCancelled(@NonNull DatabaseError error) {
-        //     Toast.makeText(MainActivity.this, getResources().getQuantityString(R.plurals.download_error_dogs, 99, 99), Toast.LENGTH_SHORT).show();
-        // }
+            // Within onCancelled()
+            // TODO (9): Show a Toast with an appropriate error message
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, getResources().getQuantityString(R.plurals.download_error_dogs, 99, 99), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         setupRecyclerView();
         setupFab();
