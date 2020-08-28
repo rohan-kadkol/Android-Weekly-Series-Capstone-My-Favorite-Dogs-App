@@ -15,14 +15,7 @@ public final class FirebaseUtils {
     private FirebaseUtils() {}
 
     public static void addDog(String name, String breed, double age, String imageUrl, String notes, String likes, String dislikes) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("dogs");
-        String key = ref.push().getKey();
-        Dog dog = new Dog(key, name, breed, age, imageUrl, notes, likes, dislikes);
 
-        if (key != null) {
-            ref.child(key).setValue(dog);
-        }
     }
 
     public static void editDog(Dog dog, String name, String breed, double age, String imageUrl, String notes, String likes, String dislikes) {
@@ -34,15 +27,10 @@ public final class FirebaseUtils {
         dog.setLikes(likes);
         dog.setDislikes(dislikes);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("dogs");
 
-        ref.child(dog.getId()).setValue(dog);
     }
 
     public static void deleteDog(Dog dog) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("dogs").child(dog.getId());
-        ref.removeValue();
+
     }
 }
