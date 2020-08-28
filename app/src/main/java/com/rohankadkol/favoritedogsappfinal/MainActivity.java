@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity implements DogsAdapter.DogCl
 
         // TODO (1): Create a FirebaseDatabase instance and call it database
         // TODO (2): Using this instance, create a DatabaseReference to the path "dogs". Name it "ref".
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("dogs");
+        // FirebaseDatabase database = FirebaseDatabase.getInstance();
+        // DatabaseReference ref = database.getReference("dogs");
 
         // TODO (3): Add a ValueEventListener to ref.
         // ref.addValueEventListener(new ValueEventListener() {});
